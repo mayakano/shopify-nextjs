@@ -6,7 +6,7 @@ export default function Nav() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 pt-4 pb-2 lg:max-w-screen-xl">
         <Link href="/" passHref>
           <a className="cursor-pointer">
-            <span className="pt-1 text-lg font-bold">Shopify + Next.js</span>
+            <span className="pt-1 text-lg font-bold">NextGraph</span>
           </a>
         </Link>
         <a className="text-md cursor-pointer font-bold">Cart</a>
