@@ -1,11 +1,13 @@
 // import Head from 'next/head'
 import { getProductsInCollection } from '../lib/shopify'
 import ProductList from '../components/ProductList'
+import Hero from '../components/Hero'
 
 //using destructuring for 'properties' so we don't need to use the word props
 export default function Home({ products }) {
   return (
-    <div className="text-3xl">
+    <div>
+      <Hero />
       <ProductList products={products} />
     </div>
   )
