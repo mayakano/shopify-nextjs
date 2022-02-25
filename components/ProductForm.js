@@ -4,6 +4,7 @@ import ProductOptions from './ProductOptions'
 import { CartContext } from '../context/shopContext'
 
 export default function ProductForm({ product }) {
+  console.log(product)
   const { addToCart } = useContext(CartContext)
 
   const allVariantOptions = product.variants.edges?.map((variant) => {
@@ -40,6 +41,17 @@ export default function ProductForm({ product }) {
   function setOptions(name, value) {
     setSelectedOptions((prevState) => {
       return { ...prevState, [name]: value }
+    })
+
+    const selection = {
+      ...selectedOptions,
+      [name]: value,
+    }
+
+    allVariantOptions.map((item) => {
+      if (JSON.stringify(item.options) === JSON.stringify(selection)) {
+        setSelectedVariant(item)
+      }
     })
   }
 
