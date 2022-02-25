@@ -22,9 +22,11 @@ export default function ShopProvider({ children }) {
       setCheckoutId(cartObject[1].id)
       setCheckoutUrl(cartObject[1].webUrl)
     }
-  })
+  }, [])
 
   async function addToCart(newItem) {
+    setCartOpen(true)
+
     if (cart.length === 0) {
       setCart([newItem])
 
@@ -57,9 +59,33 @@ export default function ShopProvider({ children }) {
     }
   }
 
+  async function removeCartItem(itemtoRemove) {
+    const updatedCart = cart.filter((item) => item.id !== itemtoRemove) //we're only keeping the items inside of the cart that we didn't remove
+
+    setCart(updatedCart)
+
+    const newCheckout = await updateCheckout(checkoutId, updatedCart)
+
+    localStorage.setItem(
+      'checkout_id',
+      JSON.stringify([updatedCart, newCheckout])
+    )
+
+    if (cart.length === 1) {
+      setCartOpen(false)
+    }
+  }
+
   return (
     <CartContext.Provider
-      value={{ cart, cartOpen, setCartOpen, addToCart, checkoutUrl }}
+      value={{
+        cart,
+        cartOpen,
+        setCartOpen,
+        addToCart,
+        checkoutUrl,
+        removeCartItem,
+      }}
     >
       {children}
     </CartContext.Provider>
