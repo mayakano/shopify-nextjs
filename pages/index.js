@@ -4,8 +4,6 @@ import ProductList from '../components/ProductList'
 
 //using destructuring for 'properties' so we don't need to use the word props
 export default function Home({ products }) {
-  console.log(products)
-
   return (
     <div className="text-3xl">
       <ProductList products={products} />
