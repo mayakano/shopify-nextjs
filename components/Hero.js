@@ -14,13 +14,13 @@ export default function Hero() {
       </h2>
       <div className="mx-auto mt-5 flex max-w-md items-center justify-center md:mt-8">
         <a
-          href="#"
+          href="https://github.com/mayakano/shopify-nextjs"
           className="mr-6 inline-flex h-12 items-center justify-center rounded-md border-transparent bg-gray-900 px-6 py-3 font-medium text-white hover:bg-gray-800"
         >
-          Browse Now
+          View Github
         </a>
         <a
-          href="#"
+          href="https://www.shopify.com/plus/solutions/headless-commerce"
           className="inline-flex items-center font-semibold text-gray-900 hover:text-gray-800"
         >
           Learn more
